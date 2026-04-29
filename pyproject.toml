@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boxnote2md"
+version = "0.1.0"
+description = "CLI to convert Box Note (.boxnote) files to Markdown."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "kanji.nakano" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+boxnote2md = "boxnote2md.cli:main"
+md2boxnote = "boxnote2md.md2boxnote_cli:main"
+
+[tool.setuptools.packages.find]
+include = ["boxnote2md*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
